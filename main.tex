@@ -1,0 +1,17 @@
+\documentclass{book}
+\makeatletter
+\def\input@path{{src/commands/}{src/sections/}}
+% \def\Ginput@path{{src/figures/}} % 假设有图片文件夹
+\makeatother
+\usepackage{env}
+\usepackage{cmd}
+\author{Lemonade}
+\title{\Huge 高中基础知识小测}
+\date{2026}
+\begin{document}
+\maketitle
+\frontmatter
+\tableofcontents
+\mainmatter
+\include{src/sections/maths}
+\end{document}
