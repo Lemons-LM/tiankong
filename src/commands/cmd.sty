@@ -1,6 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{cmd}[Custom Commands]
-\newcommand{\flexbox}[1]{%
+\newcommand{\cbox}[1]{%
   \par
   \addvspace{\bigskipamount}%
   \noindent\makebox[\linewidth]{%
@@ -17,7 +17,6 @@
   \par
   \addvspace{\bigskipamount}%
 }
-\newcommand{\fullref}[1]{\nameref{#1}（\cref{#1}）}
 \newcommand{\sbl}{\underline{\hspace{4em}}}   % 短空白
 \newcommand{\mbl}{\underline{\hspace{6em}}}   % 中空白
 \newcommand{\lbl}{\underline{\hspace{8em}}}   % 长空白
@@ -30,4 +29,21 @@
 \newcommand{\emb}{=\mbl}
 \newcommand{\elb}{=\lbl}
 \newcommand{\exlb}{=\xlbl}
+\newdimen\columnspadding
+\columnspadding=3em % 左右 padding
+
+\newcommand{\column}[1]{%
+  \begingroup
+  \def\sep{\hfil}%
+  \hbox to \linewidth{%
+    \hskip\columnspadding
+    \hbox to \dimexpr\linewidth-2\columnspadding\relax{%
+      #1\hfil
+    }%
+    \hskip\columnspadding
+  }%
+  \par
+  \endgroup
+}
+\newcommand{\nl}[1]{\vspace{#1\baselineskip}}
 \endinput
