@@ -1,18 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{cmd}[Custom Commands]
-\declaretheorem[
-  name=定义,
-  numberwithin=chapter
-]{definition}
-\declaretheorem[
-  name=定理,
-  numberwithin=chapter
-]{theorem}
-\declaretheorem[
-  name=推论,
-  numberwithin=chapter
-]{corollary}
-\declaretheorem[name=引理, sibling=theorem]{lemma}
 \newcommand{\flexbox}[1]{%
   \par
   \addvspace{\bigskipamount}%
@@ -30,45 +17,17 @@
   \par
   \addvspace{\bigskipamount}%
 }
-\definecolor{noticeboxBorder}{HTML}{3366CC}
-\definecolor{noticeboxBackground}{HTML}{DDEEFF}
-\newtcolorbox{notice}{
-  enhanced,
-  sharp corners,
-  colback=noticeboxBackground,
-  colframe=noticeboxBorder,
-  leftrule=6pt,
-  rightrule=1pt,
-  toprule=1pt,
-  bottomrule=1pt,
-  left=12mm,
-  right=4mm,
-  top=3mm,
-  bottom=3mm,
-  overlay={
-    % 左侧信息图标
-    \node[
-      circle,
-      draw=noticeboxBorder,     % 用边框颜色描边
-      fill=noticeboxBackground,               % 内部填充白色（或透明）
-      line width=2pt,                  % 或用 line width=1pt 控制环的粗细
-      text=noticeboxBorder,     % 图标颜色匹配边框（或保持 white，按需）
-      font=\bfseries,
-      inner sep=2.5pt
-    ] at ([xshift=8mm]frame.west) {\faInfo};
-  }
-}
-\crefname{theorem}{定理}{定理}
-\crefname{definition}{定义}{定义}
-\crefname{lemma}{引理}{引理}
-\crefname{equation}{公式}{公式}
-\crefname{corollary}{推论}{推论}
-\crefname{proof}{证明}{证明}
-\Crefname{theorem}{定理}{定理}
-\Crefname{definition}{定义}{定义}
-\Crefname{lemma}{引理}{引理}
-\Crefname{equation}{公式}{公式}
-\Crefname{corollary}{推论}{推论}
-\Crefname{proof}{证明}{证明}
 \newcommand{\fullref}[1]{\nameref{#1}（\cref{#1}）}
+\newcommand{\sbl}{\underline{\hspace{4em}}}   % 短空白
+\newcommand{\mbl}{\underline{\hspace{6em}}}   % 中空白
+\newcommand{\lbl}{\underline{\hspace{8em}}}   % 长空白
+\newcommand{\xlbl}{\underline{\hspace{10em}}}  % 超长空白
+\newcommand{\csb}{：\sbl}
+\newcommand{\cmb}{：\mbl}
+\newcommand{\clb}{：\lbl}
+\newcommand{\cxlb}{：\xlbl}
+\newcommand{\esb}{=\sbl}
+\newcommand{\emb}{=\mbl}
+\newcommand{\elb}{=\lbl}
+\newcommand{\exlb}{=\xlbl}
 \endinput
